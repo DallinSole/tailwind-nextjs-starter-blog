@@ -1,9 +1,38 @@
-import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
+import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer.js'
 import { allBlogs } from 'contentlayer/generated'
 import Main from './Main'
 
 export default async function Page() {
   const sortedPosts = sortPosts(allBlogs)
   const posts = allCoreContent(sortedPosts)
-  return <Main posts={posts} />
+  
+  // Filter out specific posts you don't want to display
+  const filteredPosts = posts.filter((post) => {
+    // Remove draft posts
+    if (post.draft === true) {
+      return false
+    }
+    
+    // Remove posts by title
+    const excludedTitles = ['My fancy title', 'Sample .md file']
+    if (excludedTitles.includes(post.title)) {
+      return false
+    }
+    
+    // Remove posts by slug
+    const excludedSlugs = ['my-fancy-title', 'code-sample']
+    if (excludedSlugs.includes(post.slug)) {
+      return false
+    }
+    
+    // Remove posts by tags
+    const excludedTags = ['draft']
+    if (post.tags && post.tags.some(tag => excludedTags.includes(tag))) {
+      return false
+    }
+    
+    return true
+  })
+  
+  return <Main posts={filteredPosts} />
 }
