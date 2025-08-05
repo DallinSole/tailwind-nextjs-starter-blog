@@ -14,13 +14,13 @@ export default async function Page() {
     }
     
     // Remove posts by title
-    const excludedTitles = ['My fancy title', 'Sample .md file']
+    const excludedTitles = ['My fancy title']
     if (excludedTitles.includes(post.title)) {
       return false
     }
     
     // Remove posts by slug
-    const excludedSlugs = ['my-fancy-title', 'code-sample']
+    const excludedSlugs = ['my-fancy-title']
     if (excludedSlugs.includes(post.slug)) {
       return false
     }
