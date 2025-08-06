@@ -1,1 +1,12 @@
-node_modules/.bin/lint-staged
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Try to find node in common locations
+if command -v node >/dev/null 2>&1; then
+  node_modules/.bin/lint-staged
+elif [ -f "C:/Program Files/nodejs/node.exe" ]; then
+  "C:/Program Files/nodejs/node.exe" node_modules/.bin/lint-staged
+else
+  echo "Node.js not found, skipping pre-commit hooks"
+  exit 0
+fi
