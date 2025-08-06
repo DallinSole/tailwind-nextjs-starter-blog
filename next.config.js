@@ -57,7 +57,7 @@ const securityHeaders = [
 
 const output = 'export'
 const basePath = process.env.BASE_PATH || undefined
-const unoptimized = process.env.UNOPTIMIZED ? true : undefined
+const unoptimized = true // Set to true to fix image optimization with export output
 
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
