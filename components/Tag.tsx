@@ -21,7 +21,7 @@
 // Temporary disabled component
 const Tag = ({ text }: { text: string }) => {
   return (
-    <span className="mr-3 text-sm font-medium uppercase text-gray-500 dark:text-gray-400">
+    <span className="mr-3 text-sm font-medium text-gray-500 uppercase dark:text-gray-400">
       {text.split(' ').join('-')}
     </span>
   )

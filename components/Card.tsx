@@ -58,7 +58,7 @@
 // Component disabled - projects functionality has been removed
 const Card = ({ title, description, imgSrc, href }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
-    <div className="overflow-hidden rounded-md border-2 border-gray-200/60 dark:border-gray-700/60 p-6">
+    <div className="overflow-hidden rounded-md border-2 border-gray-200/60 p-6 dark:border-gray-700/60">
       <h2 className="mb-3 text-2xl leading-8 font-bold tracking-tight text-gray-500 dark:text-gray-400">
         {title}
       </h2>
