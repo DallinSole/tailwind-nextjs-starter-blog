@@ -1,9 +1,15 @@
 import NextImage, { ImageProps } from 'next/image'
 
-const basePath = process.env.BASE_PATH
+const Image = ({ src, ...rest }: ImageProps) => {
+  // Use a more robust approach for handling basePath
+  const basePath = process.env.BASE_PATH || ''
+  const imageSrc = src
+    ? typeof src === 'string' && src.startsWith('http')
+      ? src
+      : `${basePath}${src}`
+    : src
 
-const Image = ({ src, ...rest }: ImageProps) => (
-  <NextImage src={`${basePath || ''}${src}`} {...rest} />
-)
+  return <NextImage src={imageSrc} {...rest} />
+}
 
 export default Image
