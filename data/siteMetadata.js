@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'A blog created for Top Tech Review',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://toptechreview.net',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   //siteLogo: `${process.env.BASE_PATH || ''}/static/images/toptechreview-high-resolution-logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
